@@ -58,7 +58,7 @@ document.getElementById('allCentresBtn').addEventListener('click', async () => {
     centresContainer.innerHTML = '';
     const center = searchData.value;
     const centres = await fetchData();
-    const centerData = centres.filter(val=>val.name===center)
+    const centerData = centres.filter(val=>val.name.toLowerCase().includes(center))
     displayCentres(centerData);
 });
 
@@ -66,15 +66,15 @@ document.getElementById('cityBtn').addEventListener('click',async ()=>{
     centresContainer.innerHTML = '';
     const city = searchData.value;
     const centres = await fetchData();
-    const cityData = centres.filter(val=>val.Place===city)
+    const cityData = centres.filter(val=>val.Place.toLowerCase().includes(city))
     displayCentres(cityData);
-    console.log("City",city,cityData,centres)
+    console.log("City",city,cityData)
 })
 document.getElementById('stateBtn').addEventListener('click',async ()=>{
     centresContainer.innerHTML = '';
     const state = searchData.value;
     const centres = await fetchData();
-    const stateData = centres.filter(val=>val.State===state)
+    const stateData = centres.filter(val=>val.State.toLowerCase().includes(state))
     displayCentres(stateData);
     console.log("City",state,stateData,centres)
 })
