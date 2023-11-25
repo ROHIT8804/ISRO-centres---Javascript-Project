@@ -56,7 +56,7 @@ document.addEventListener('DOMContentLoaded', async function() {
 
 document.getElementById('allCentresBtn').addEventListener('click', async () => {
     centresContainer.innerHTML = '';
-    const center = searchData.value;
+    const center = searchData.value.toLowerCase();
     const centres = await fetchData();
     const centerData = centres.filter(val=>val.name.toLowerCase().includes(center))
     displayCentres(centerData);
@@ -64,7 +64,7 @@ document.getElementById('allCentresBtn').addEventListener('click', async () => {
 
 document.getElementById('cityBtn').addEventListener('click',async ()=>{
     centresContainer.innerHTML = '';
-    const city = searchData.value;
+    const city = searchData.value.toLowerCase();
     const centres = await fetchData();
     const cityData = centres.filter(val=>val.Place.toLowerCase().includes(city))
     displayCentres(cityData);
@@ -72,9 +72,9 @@ document.getElementById('cityBtn').addEventListener('click',async ()=>{
 })
 document.getElementById('stateBtn').addEventListener('click',async ()=>{
     centresContainer.innerHTML = '';
-    const state = searchData.value;
+    const state = searchData.value.toLowerCase();
     const centres = await fetchData();
     const stateData = centres.filter(val=>val.State.toLowerCase().includes(state))
     displayCentres(stateData);
-    console.log("City",state,stateData,centres)
+    console.log("City",state,stateData)
 })
